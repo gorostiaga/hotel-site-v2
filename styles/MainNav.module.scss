@@ -1,0 +1,195 @@
+@import "_variables.scss";
+
+.header-area {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  top: 0;
+  z-index: 9;
+  padding-top: 28px;
+  @media #{$mobile_device} {
+    padding-top: 0;
+  }
+  .main-header-area {
+    padding: 0 3rem;
+    @media #{$mobile_device} {
+      padding: 10px 10px;
+    }
+
+    .toggle_button {
+      width: 3rem;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding-top: 0;
+      padding-bottom: 0;
+      vertical-align: middle;
+      margin-left: 1rem;
+    }
+    .toggle_button:focus {
+      outline: none;
+    }
+
+    .toggle_button__bar {
+      width: 100%;
+      height: 0.2rem;
+      background: white;
+      display: block;
+      margin: 0.6rem 0;
+    }
+
+    .main-menu {
+      text-align: center;
+      padding: 12px 0;
+      display: inline-block;
+      position: relative;
+      margin-right: 50px;
+      @media #{$mid_device} {
+        margin-right: 20px;
+      }
+      @media #{$large_device} {
+        margin-right: 15px;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        text-transform: capitalize;
+        font-weight: 600;
+        display: inline-block;
+        padding: 0px 7px 10px 7px;
+        /*font-family: $font1; */
+        position: relative;
+        text-transform: capitalize;
+
+        @media #{$mid_device} {
+          // padding: 41px 0px 10px 0px;
+          font-size: 16px;
+        }
+        @media #{$large_device} {
+          // padding: 41px 0px 10px 0px;
+          font-size: 16px;
+        }
+        &::before {
+          position: absolute;
+          content: "";
+          background: #fff;
+          width: 100%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          transform: scaleX(0);
+          transition: all 0.6s ease 0s;
+        }
+        &:hover::before {
+          opacity: 1;
+          transform: scaleX(1);
+        }
+        &.active {
+          &::before {
+            opacity: 1;
+            transform: scaleX(1);
+          }
+        }
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+    .logo-img {
+      display: flex;
+      justify-content: center;
+      @media #{$mobile_device} {
+        // padding-left: 20px;
+        justify-content: flex-end;
+        text-align: right;
+        margin-right: 1rem;
+      }
+      @media #{$tablet_device} {
+        // padding-left: 20px;
+        justify-content: flex-end;
+        text-align: right;
+      }
+      @media #{$mid_device} {
+        // padding-left: 20px;
+        text-align: right;
+      }
+      img {
+        @media #{$mobile_device} {
+          // padding-left: 20px;
+          width: 70px;
+        }
+        @media #{$tablet_device} {
+          // padding-left: 20px;
+          width: 70px;
+        }
+      }
+    }
+    .book_room {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .social_links {
+        ul {
+          li {
+            display: inline-block;
+
+            a {
+              color: #a8a7a0;
+              margin: 0 10px;
+              font-size: 15px;
+              &:hover {
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .sticky {
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: -70px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    transform: translateY(70px);
+    transition: transform 500ms ease, background 500ms ease;
+    -webkit-transition: transform 500ms ease, background 500ms ease;
+    box-shadow: 0px 3px 16px 0px rgba(0, 0, 0, 0.1);
+    padding: 10px 48px;
+    background: #000;
+    @media #{$mobile_device} {
+      padding: 10px 10px;
+    }
+    @media #{$tablet_device} {
+      padding: 10px 10px;
+    }
+    @media #{$mid_device} {
+      padding: 10px 20px;
+    }
+    @media #{$large_device} {
+      padding: 10px 20px;
+    }
+    .main-menu {
+      padding: 0;
+      a {
+        color: white;
+      }
+    }
+  }
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+}

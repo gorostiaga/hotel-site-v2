@@ -1,0 +1,61 @@
+@import "_variables.scss";
+.forQuery {
+  padding-top: 200px;
+  padding-bottom: 200px;
+  @media #{$mobile_device} {
+    padding: 60px 0;
+  }
+  @media #{$tablet_device} {
+    padding: 100px 0;
+  }
+  @media #{$mid_device} {
+    padding: 100px 0;
+  }
+  @media #{$large_device} {
+    padding: 100px 0;
+  }
+  .Query_border {
+    border: 1px solid #bababa;
+    padding: 38px 50px;
+    @media #{$mobile_device} {
+      padding: 20px 20px;
+    }
+    .Query_text {
+      text-align: left;
+    }
+    p {
+      font-size: 30px;
+      color: #1f1f1f;
+      font-weight: 400;
+      margin-bottom: 0;
+      @media #{$mobile_device} {
+        margin-bottom: 20px;
+        font-size: 18px;
+        text-align: center;
+      }
+      @media #{$tablet_device} {
+        font-size: 18px;
+      }
+    }
+    .phone_num {
+      text-align: right;
+      @media #{$mobile_device} {
+        text-align: center;
+      }
+      button {
+        background: #009dff;
+        color: #fff;
+        padding: 12px 53px;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 18px;
+        border: 1px solid transparent;
+        &:hover {
+          color: #009dff;
+          border: 1px solid #009dff;
+          background: #fff;
+        }
+      }
+    }
+  }
+}
