@@ -80,7 +80,7 @@ const MainNav = () => {
                   <div className={`${styles["main-menu"]} `}>
                     <nav>
                       <div className={`${raleway.className}`}>
-                        <Link href="/#home">Inicio</Link>
+                        <Link href="/">Inicio</Link>
                         <Link href="/#rooms">Habitaciones</Link>
                         <Link href="/#about">Acerca de</Link>
                         <Link href="/#contact">Contacto</Link>

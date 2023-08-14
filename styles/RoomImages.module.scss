@@ -1,0 +1,8 @@
+@import "_variables.scss";
+
+.container {
+  height: 100vh;
+  @media #{$mobile_device} {
+    height: 50vh;
+  }
+}

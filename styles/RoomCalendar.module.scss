@@ -1,0 +1,35 @@
+@import "_variables.scss";
+
+.section-calendar {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: center;
+  .form-container {
+    display: grid;
+
+    .calendar-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    .calendar-submit {
+      display: flex;
+      margin: 2rem 0;
+      justify-content: center;
+      .calendar-submit__btn {
+        background: #009dff;
+        padding: 12px 26px;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 5%;
+        color: #fff;
+        &:hover {
+          background: #fff;
+          color: #009dff;
+          border: 1px solid #009dff;
+        }
+      }
+    }
+  }
+}
