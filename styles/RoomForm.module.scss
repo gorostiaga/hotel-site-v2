@@ -1,0 +1,81 @@
+@import "_variables.scss";
+
+.section-container {
+  margin: 5rem 0;
+
+  .room-form {
+    margin: auto;
+    width: 40rem;
+
+    padding: 1rem;
+    display: grid;
+    grid-auto-rows: 2rem;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 0.5rem;
+    grid-template-columns: 10rem auto;
+
+    @media #{$tablet_device} {
+      width: 90vw;
+      grid-template-columns: auto;
+      grid-row-gap: 0.5rem;
+    }
+    @media #{$mobile_device} {
+      width: 100vw;
+      grid-template-columns: auto;
+      grid-row-gap: 0.5rem;
+    }
+    label,
+    input,
+    select {
+      display: block;
+      width: 100%;
+    }
+
+    select,
+    input {
+      border: 0.05px solid #ddd;
+      padding-left: 0.75rem;
+      color: #555555;
+    }
+
+    input:focus,
+    select:focus {
+      outline: none;
+      background: #d8f3df;
+      border-color: #145332a2;
+      &[id^="checkin"],
+      &[id^="checkout"],
+      &[id^="night"] {
+        background-color: white;
+      }
+    }
+
+    input.invalid,
+    select.invalid,
+    :invalid,
+    .invalid {
+      border-color: red !important;
+      background: #faacac;
+    }
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+
+      button[type="submit"] {
+        display: block;
+        width: 30%;
+        background: #009dff;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 5%;
+        color: #fff;
+        &:hover {
+          background: #fff;
+          color: #009dff;
+          border: 1px solid #009dff;
+        }
+      }
+    }
+  }
+}

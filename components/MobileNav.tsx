@@ -22,22 +22,22 @@ const MobileNav: FC<MobileNavProps> = (props) => {
       <div className={`${styles["mobile-nav__items"]} ${raleway.className}`}>
         <ul className={styles["mobile-nav__items"]}>
           <li className={styles["mobile-nav__item"]}>
-            <Link href="#home" onClick={clickHandler}>
+            <Link href="/#home" onClick={clickHandler}>
               Inicio
             </Link>
           </li>
           <li className={styles["mobile-nav__item"]}>
-            <Link href="#rooms" onClick={clickHandler}>
+            <Link href="/#rooms" onClick={clickHandler}>
               Habitaciones
             </Link>
           </li>
           <li className={styles["mobile-nav__item"]}>
-            <Link href="#about" onClick={clickHandler}>
+            <Link href="/#about" onClick={clickHandler}>
               Acerca de
             </Link>
           </li>
           <li className={styles["mobile-nav__item"]}>
-            <Link href="#contact" onClick={clickHandler}>
+            <Link href="/#contact" onClick={clickHandler}>
               Contacto
             </Link>
           </li>
