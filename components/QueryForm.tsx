@@ -38,33 +38,30 @@ const QueryForm = () => {
     if (!nameIsValid && !phoneIsValid && !textIsValid) {
       return;
     }
-    const data = {
-      name: nameInputRef.current?.value,
-      phone: phoneInputRef.current?.value,
-      text: textInputRef.current?.value,
-    };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/queryform";
-    const options = {
-      // The method is POST because we are sending data.
-      method: "POST",
-      // Tell the server we're sending JSON.
-      headers: {
-        "Content-Type": "application/json",
-      },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    if (response.ok) {
-      console.log("Result: " + result.message);
+    // const data = {
+    //   name: nameInputRef.current?.value,
+    //   phone: phoneInputRef.current?.value,
+    //   text: textInputRef.current?.value,
+    // };
+    // const JSONdata = JSON.stringify(data);
+    // const endpoint = "/api/queryform";
+    // const options = {
+    //   // The method is POST because we are sending data.
+    //   method: "POST",
+    //   // Tell the server we're sending JSON.
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   // Body of the request is the JSON data we created above.
+    //   body: JSONdata,
+    // };
+    // const response = await fetch(endpoint, options);
+    // const result = await response.json();
 
-      if (nameInputRef.current) nameInputRef.current.value = "";
-      if (phoneInputRef.current) phoneInputRef.current.value = "";
-      if (textInputRef.current) textInputRef.current.value = "";
-      setMessageSent(true);
-    }
+    if (nameInputRef.current) nameInputRef.current.value = "";
+    if (phoneInputRef.current) phoneInputRef.current.value = "";
+    if (textInputRef.current) textInputRef.current.value = "";
+    setMessageSent(true);
   };
 
   const nameStyle = nameIsValid ? "" : styles["invalid"];
