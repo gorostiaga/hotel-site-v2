@@ -6,6 +6,7 @@
   justify-content: center;
   .form-container {
     display: grid;
+    justify-content: center;
 
     .calendar-container {
       display: flex;
@@ -29,6 +30,32 @@
           color: #009dff;
           border: 1px solid #009dff;
         }
+      }
+    }
+    .date-invalid {
+      border: 1px solid red;
+      border-radius: 1%;
+      background-color: rgba(255, 0, 0, 0.144);
+      color: red;
+      text-align: center;
+      padding: 0.5rem;
+    }
+    .people {
+      display: flex;
+      margin: 1rem;
+      justify-content: center;
+
+      label {
+        font-size: 1.1rem;
+        font-weight: bold;
+        margin: 0.5rem 1rem;
+      }
+
+      input {
+        width: 30%;
+        border: 0.05px solid #ddd;
+        padding-left: 0.9rem;
+        color: #555555;
       }
     }
   }
