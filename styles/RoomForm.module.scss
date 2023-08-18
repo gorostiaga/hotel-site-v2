@@ -1,4 +1,5 @@
 @import "_variables.scss";
+@import "_mixins.scss";
 
 .section-container {
   margin: 5rem 0;
@@ -45,17 +46,15 @@
       border-color: #145332a2;
       &[id^="checkin"],
       &[id^="checkout"],
-      &[id^="night"] {
+      &[id^="night"],
+      &[id^="people"],
+      &[id^="price"] {
         background-color: white;
       }
     }
 
-    input.invalid,
-    select.invalid,
-    :invalid,
     .invalid {
-      border-color: red !important;
-      background: #faacac;
+      @include invalid();
     }
     .form-submit {
       display: flex;

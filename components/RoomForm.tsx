@@ -83,10 +83,16 @@ const raleway = Raleway({
 //   }
 // };
 
-const RoomForm = () => {
+type RoomFormProps = {
+  days: String[];
+  peoplePrice: string[];
+};
+
+const RoomForm: React.FC<RoomFormProps> = (props) => {
   const [formIsValid, setFormIsValid] = useState<Map<string, boolean>>(
     new Map()
   );
+
   //   const [formState, dispatchForm] = useReducer(formReducer, {
   //     isIdDocumentNotEmpty: false,
   //     isFirstNameNotEmpty: false,
@@ -109,6 +115,14 @@ const RoomForm = () => {
   const phoneInputRef = useRef<HTMLInputElement | null>(null);
   const originCityInputRef = useRef<HTMLInputElement | null>(null);
   const paymentTypeInputRef = useRef<HTMLSelectElement | null>(null);
+
+  const [isIdValid, setIsIdValid] = useState(true);
+  const [isFirstNameValid, setIsFirstNameValid] = useState(true);
+  const [isLastNameValid, setIsLastNameValid] = useState(true);
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [isPhoneValid, setIsPhoneValid] = useState(true);
+  const [isOriginCityValid, setIsOriginCityValid] = useState(true);
+
   //const isValidFormRef = useRef<Boolean>(false);
 
   //   useEffect(() => {
@@ -142,34 +156,34 @@ const RoomForm = () => {
 
     const phoneNumber = phoneInputRef.current?.value;
 
-    const hm = new Map();
-    hm.set(
-      "idDocumentInputRef",
-      idDocumentInputRef.current?.value.trim() != ""
-    );
-    hm.set("firstNameInputRef", firstNameInputRef.current?.value.trim() != "");
-    hm.set("lastNameInputRef", lastNameInputRef.current?.value.trim() != "");
-    hm.set(
-      "emailInputRef",
-      emailInputRef.current?.value.trim() != "" &&
-        emailInputRef.current?.value.includes("@")
-    );
-    hm.set(
-      "phoneInputRef",
-      phoneInputRef.current?.value.trim() != "" && !isNaN(Number(phoneNumber))
-    );
-    hm.set(
-      "originCityInputRef",
-      originCityInputRef.current?.value.trim() != ""
-    );
+    // const hm = new Map();
+    // hm.set(
+    //   "idDocumentInputRef",
+    //   idDocumentInputRef.current?.value.trim() != ""
+    // );
+    // hm.set("firstNameInputRef", firstNameInputRef.current?.value.trim() != "");
+    // hm.set("lastNameInputRef", lastNameInputRef.current?.value.trim() != "");
+    // hm.set(
+    //   "emailInputRef",
+    //   emailInputRef.current?.value.trim() != "" &&
+    //     emailInputRef.current?.value.includes("@")
+    // );
+    // hm.set(
+    //   "phoneInputRef",
+    //   phoneInputRef.current?.value.trim() != "" && !isNaN(Number(phoneNumber))
+    // );
+    // hm.set(
+    //   "originCityInputRef",
+    //   originCityInputRef.current?.value.trim() != ""
+    // );
 
-    const arrayValues = Array.from(hm.values());
-    const isValidForm = arrayValues.reduce(
-      (result, value) => result && value,
-      true
-    );
+    // const arrayValues = Array.from(hm.values());
+    // const isValidForm = arrayValues.reduce(
+    //   (result, value) => result && value,
+    //   true
+    // );
 
-    setFormIsValid(hm);
+    // setFormIsValid(hm);
 
     // const isValidForm =
     //   idDocumentInputRef.current?.value.trim() != "" &&
@@ -183,23 +197,37 @@ const RoomForm = () => {
     //   originCityInputRef.current?.value.trim() != "" &&
     //   paymentTypeInputRef.current?.value.trim() != "";
 
-    console.log("Es: " + isValidForm);
+    setIsIdValid(idDocumentInputRef.current?.value.trim() != "");
+    setIsFirstNameValid(firstNameInputRef.current?.value.trim() != "");
+    setIsLastNameValid(lastNameInputRef.current?.value.trim() != "");
+    if (emailInputRef.current?.value)
+      setIsEmailValid(
+        emailInputRef.current?.value.trim() != "" &&
+          emailInputRef.current?.value.includes("@")
+      );
+    setIsPhoneValid(
+      phoneInputRef.current?.value.trim() != "" && !isNaN(Number(phoneNumber))
+    );
+    setIsOriginCityValid(originCityInputRef.current?.value.trim() != "");
+
+    if (
+      !isIdValid &&
+      isFirstNameValid &&
+      isLastNameValid &&
+      isEmailValid &&
+      isPhoneValid &&
+      isOriginCityValid
+    ) {
+      return;
+    }
   };
 
-  const idDocumentStyle = formIsValid.get("idDocumentInputRef")
-    ? ""
-    : styles["invalid"];
-  const firstNameStyle = formIsValid.get("firstNameInputRef")
-    ? ""
-    : styles["invalid"];
-  const lastNameStyle = formIsValid.get("lastNameInputRef")
-    ? ""
-    : styles["invalid"];
-  const emailStyle = formIsValid.get("emailInputRef") ? "" : styles["invalid"];
-  const phoneStyle = formIsValid.get("phoneInputRef") ? "" : styles["invalid"];
-  const originCityStyle = formIsValid.get("originCityInputRef")
-    ? ""
-    : styles["invalid"];
+  const idDocumentStyle = isIdValid ? "" : styles["invalid"];
+  const firstNameStyle = isFirstNameValid ? "" : styles["invalid"];
+  const lastNameStyle = isLastNameValid ? "" : styles["invalid"];
+  const emailStyle = isEmailValid ? "" : styles["invalid"];
+  const phoneStyle = isPhoneValid ? "" : styles["invalid"];
+  const originCityStyle = isOriginCityValid ? "" : styles["invalid"];
 
   return (
     <section className={styles["section-container"]}>
@@ -207,19 +235,17 @@ const RoomForm = () => {
         <label htmlFor="checkin">Día de Entrada</label>
         <input
           id="checkin"
-          type="date"
           name="checkin"
           required
-          //value={initialDate}
+          value={props.days[0].valueOf()}
           readOnly
         />
         <label htmlFor="checkout">Día de Salida</label>
         <input
           id="checkout"
-          type="date"
           name="checkout"
           required
-          //value={endDate}
+          value={props.days[1].valueOf()}
           readOnly
         />
         <label htmlFor="night">Cantidad de Noches </label>
@@ -228,7 +254,25 @@ const RoomForm = () => {
           type="text"
           name="night"
           required
-          //value={night}
+          value={props.days[2].valueOf()}
+          readOnly
+        />
+        <label htmlFor="people">Nro de personas</label>
+        <input
+          id="people"
+          type="text"
+          name="people"
+          required
+          value={props.peoplePrice[0]}
+          readOnly
+        />
+        <label htmlFor="price">Precio Total</label>
+        <input
+          id="price"
+          type="text"
+          name="price"
+          required
+          value={props.peoplePrice[1]}
           readOnly
         />
 
@@ -264,21 +308,7 @@ const RoomForm = () => {
           //onBlur={lastNameBlurHandler}
           className={lastNameStyle}
         />
-        <label htmlFor="people">Nro de personas</label>
-        <select
-          id="people"
-          name="people"
-          required
-          ref={peopleInputRef}
-          //onBlur={peopleBlurHandler}
-        >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
+
         <label htmlFor="email">Correo Electrónico</label>
         <input
           id="email"
@@ -325,7 +355,7 @@ const RoomForm = () => {
         <div></div>
         <div className={styles["form-submit"]}>
           <button type="submit" onClick={submitHandler}>
-            Confirmar
+            Reservar
           </button>
         </div>
       </form>

@@ -1,0 +1,128 @@
+@import "_mixins.scss";
+@import "_variables.scss";
+
+.container {
+  //   background: #fff;
+  //   display: inline-block;
+  //   z-index: 101;
+  //   width: 681px;
+  //   padding: 60px 40px;
+
+  position: fixed;
+  //opacity: 0;
+  // transform: translateY(-3rem);
+  // transition: opacity 200ms ease-out,
+  //   transform 500ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  z-index: 200;
+  top: 20%;
+  left: 30%;
+  width: 42rem;
+  height: auto;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  animation: growth 500ms forwards;
+
+  @media #{$tablet_device} {
+    width: 100%;
+
+    left: 0;
+  }
+  @media #{$mobile_device} {
+    width: 100%;
+
+    left: 0;
+  }
+
+  h3 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .form-container {
+    margin-top: 2rem;
+    display: grid;
+    grid-auto-rows: auto;
+    grid-row-gap: 1.5rem;
+    grid-column-gap: 0.5rem;
+    grid-template-columns: 10rem auto;
+
+    @media #{$tablet_device} {
+      width: 90vw;
+      grid-template-columns: auto;
+      grid-row-gap: 0.5rem;
+    }
+    @media #{$mobile_device} {
+      width: 100vw;
+      grid-template-columns: auto;
+      grid-row-gap: 0.5rem;
+    }
+
+    input {
+      border: 0.05px solid #ddd;
+      padding-left: 0.75rem;
+      color: #555555;
+      &[id^="text"] {
+        height: 5rem;
+        resize: both;
+        overflow: auto;
+      }
+    }
+
+    label {
+      text-align: center;
+      font-size: 1.1rem;
+      padding-top: 0.2rem;
+    }
+
+    input:focus {
+      outline: none;
+      background: #d8f3df;
+      border-color: #145332a2;
+    }
+
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+      height: 2.5rem;
+
+      @media #{$tablet_device} {
+        justify-content: center;
+      }
+      @media #{$mobile_device} {
+        justify-content: center;
+      }
+
+      button[type="submit"] {
+        display: block;
+        width: 30%;
+
+        background: #009dff;
+        font-size: 1rem;
+        font-weight: bold;
+        border: 1px solid transparent;
+        border-radius: 5%;
+        color: #fff;
+        &:hover {
+          background: #fff;
+          color: #009dff;
+          border: 1px solid #009dff;
+        }
+      }
+    }
+    .invalid {
+      @include invalid();
+    }
+  }
+}
+@keyframes growth {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
