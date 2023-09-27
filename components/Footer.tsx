@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="col-xl-3 col-md-6 col-lg-3">
               <div className={styles["footer_widget"]}>
                 <h3 className={styles["footer_title"]}>Reservaciones</h3>
-                <p className={styles["footer_text"]}> +591 6666666</p>
+                <p className={styles["footer_text"]}> +591 73258754</p>
               </div>
             </div>
             <div className="col-xl-3 col-md-6 col-lg-3">
@@ -56,13 +56,23 @@ const Footer = () => {
           <div className={styles["footer_border"]}></div>
           <div className="row">
             <div className="col-xl-8 col-md-7 col-lg-9">
-              <p className={styles["copy_right"]}> Made by GorosDruxxx</p>
+              <p className={styles["copy_right"]}>
+                {" "}
+                Desarrollado por Gorostiaga
+              </p>
+              <p className={styles["copy_right"]}>
+                {" "}
+                contacto: gorostiagaj@gmail.com
+              </p>
             </div>
             <div className="col-xl-4 col-md-5 col-lg-3">
               <div className={styles["social_links"]}>
                 <ul>
                   <li>
-                    <Link href="#">
+                    <Link
+                      href="https://www.facebook.com/Hotel.La.Finca.Coroico"
+                      target="_blank"
+                    >
                       <i>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +104,10 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href="#">
+                    <Link
+                      href="https://www.instagram.com/hotel_la_finca_coroico/"
+                      target="_blank"
+                    >
                       <i>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

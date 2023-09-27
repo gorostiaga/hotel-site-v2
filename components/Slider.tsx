@@ -22,7 +22,7 @@ const photos = [
 const Slider = () => {
   return (
     <section id="home" className={styles["slider_area"]}>
-      <Carousel photos={photos} />
+      <Carousel photos={photos} autoSlide={true} />
     </section>
   );
 };

@@ -2,6 +2,7 @@
 
 .container {
   height: 100vh;
+
   @media #{$mobile_device} {
     height: 50vh;
   }

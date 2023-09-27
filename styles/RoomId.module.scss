@@ -1,0 +1,22 @@
+@import "_variables.scss";
+.book-container {
+  text-align: center;
+
+  margin-top: 2rem;
+  @media #{$mobile_device} {
+    margin-top: 0;
+  }
+
+  h2,
+  p {
+    text-align: center;
+  }
+  .link-whatsapp {
+    font-weight: bold;
+    font-size: large;
+  }
+  .maintainace-container {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
