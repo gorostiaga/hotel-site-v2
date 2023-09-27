@@ -71,9 +71,21 @@ const MainNav = () => {
                     className={styles.toggle_button}
                     onClick={mobileNavHandler}
                   >
-                    <span className={styles.toggle_button__bar}></span>
-                    <span className={styles.toggle_button__bar}></span>
-                    <span className={styles.toggle_button__bar}></span>
+                    <span
+                      className={`${styles.toggle_button__bar} ${
+                        scrolled ? styles["toggle_button__bar-sticky"] : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`${styles.toggle_button__bar} ${
+                        scrolled ? styles["toggle_button__bar-sticky"] : ""
+                      }`}
+                    ></span>
+                    <span
+                      className={`${styles.toggle_button__bar} ${
+                        scrolled ? styles["toggle_button__bar-sticky"] : ""
+                      }`}
+                    ></span>
                   </button>
                 </div>
                 <div className="col-xs-0 col-sm-0 col-xl-5 col-lg-6 d-none d-lg-block">
@@ -102,7 +114,10 @@ const MainNav = () => {
                     <div className={styles["social_links"]}>
                       <ul>
                         <li>
-                          <Link href="#">
+                          <Link
+                            href="https://www.facebook.com/Hotel.La.Finca.Coroico"
+                            target="_blank"
+                          >
                             <i>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +149,10 @@ const MainNav = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link href="#">
+                          <Link
+                            href="https://www.instagram.com/hotel_la_finca_coroico/"
+                            target="_blank"
+                          >
                             <i>
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"

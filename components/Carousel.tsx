@@ -15,15 +15,18 @@ interface Image {
 }
 interface CarouselProps {
   photos: Image[];
+  autoSlide: boolean;
+  contain?: boolean;
 }
 
-const Carousel: FC<CarouselProps> = ({ photos }) => {
+const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const getImageBackground = (id: number) => ({
     background: `url(${photos[id].url})`,
     width: "100vw",
+    backgroundSize: contain ? "contain" : "cover",
   });
 
   const slider_area__slider__container = {
@@ -47,7 +50,7 @@ const Carousel: FC<CarouselProps> = ({ photos }) => {
       clearTimeout(timerRef.current);
     }
     timerRef.current = setTimeout(() => {
-      nextHandler();
+      autoSlide && nextHandler();
     }, 4000);
 
     return () => {
