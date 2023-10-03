@@ -29,9 +29,17 @@
   .room_thumb {
     position: relative;
     overflow: hidden;
+    height: 25rem;
+    @media #{$mobile_device} {
+      height: 15rem;
+    }
+
     // z-index: 8;
     .room-main-image {
       object-fit: cover;
+      @media #{$mobile_device} {
+        object-fit: contain;
+      }
       transform: scale(1);
       transition: all 0.6s ease 0s; //different
     }
@@ -90,6 +98,10 @@
       width: 100%;
       transform: scale(1.1);
       //@include transform(scale(1.1));
+    }
+    .room-main-image {
+      width: 100%;
+      transform: scale(1.1);
     }
     .room_heading {
       a {

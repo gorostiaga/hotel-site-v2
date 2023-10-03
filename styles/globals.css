@@ -6,7 +6,7 @@
 
 /*--- for the component react-calendar ------*/
 .react-calendar {
-  width: 400px;
+  width: 100%;
   max-width: 100%;
   background: white;
   border-radius: 2%;

@@ -2,8 +2,10 @@
 
 .container {
   height: 100vh;
+  position: relative;
 
   @media #{$mobile_device} {
-    height: 50vh;
+    height: 30vh;
+    margin-bottom: 2rem;
   }
 }

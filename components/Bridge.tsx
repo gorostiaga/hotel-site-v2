@@ -1,6 +1,7 @@
 import styles from "@/styles/Bridge.module.scss";
-import imageBackground from "../public/images/bridge/bridge_1.jpg";
+import imageBackground from "@/public/images/bridge/bridge_1.jpg";
 import { Raleway } from "next/font/google";
+import Image from "next/image";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -12,20 +13,25 @@ const Bridge = () => {
     backgroundImage:
       "linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25))",
   };
-  const backgroudImage = {
-    backgroundImage: "url(../images/bridge/bridge_1.jpg)",
-    // backgroundImage: `url(${imageBackground})`,
-  };
 
   return (
-    <section style={backgroudImage} className={styles["bridge-section"]}>
-      <div className="container ">
-        <div className="row">
-          <div className="col-xl-12">
-            <div
-              className={`${styles["bridge_text"]} ${raleway.className} text-center`}
-            >
+    <section className={styles["bridge-section"]}>
+      <Image
+        src={imageBackground}
+        alt="Brige"
+        placeholder="blur"
+        className={styles["image-container"]}
+        fill
+      />
+      <div className="row w-100">
+        <div className="col-xl-12">
+          <div
+            className={`${styles["bridge_text"]} ${raleway.className} text-center`}
+          >
+            <div>
               <h3>Relajate</h3>
+            </div>
+            <div>
               <p>Y dejalo todo a cargo de nosotros</p>
             </div>
           </div>

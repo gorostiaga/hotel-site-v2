@@ -16,10 +16,16 @@ const MainNav = () => {
   const [scrolled, setScrolled] = useState(false);
 
   const mobileNavHandler = (
-    event: React.MouseEvent<HTMLDivElement | HTMLButtonElement>
+    event: React.MouseEvent<
+      HTMLDivElement | HTMLButtonElement | HTMLSpanElement
+    >
   ) => {
     if (event.target instanceof HTMLDivElement) setIsMobileNav(false);
-    if (event.target instanceof HTMLButtonElement) setIsMobileNav(true);
+    if (
+      event.target instanceof HTMLButtonElement ||
+      event.target instanceof HTMLSpanElement
+    )
+      setIsMobileNav(true);
   };
 
   const mobileClickHandler = () => {

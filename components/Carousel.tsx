@@ -2,6 +2,7 @@ import { FC, useCallback, useEffect, useRef, useState } from "react";
 import styles from "@/styles/Carousel.module.scss";
 
 import { Raleway } from "next/font/google";
+import Image from "next/image";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -23,11 +24,9 @@ const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const getImageBackground = (id: number) => ({
-    background: `url(${photos[id].url})`,
-    width: "100vw",
+  const setObjectFit = {
     backgroundSize: contain ? "contain" : "cover",
-  });
+  };
 
   const slider_area__slider__container = {
     width: `${100 * photos.length}vw`,
@@ -61,7 +60,7 @@ const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
   }, [nextHandler]);
 
   return (
-    <div className={styles["container"]}>
+    <div className={styles["main-container"]}>
       <div
         id="prev_image"
         className={styles["slider_arrow--prev"]}
@@ -71,23 +70,28 @@ const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
       </div>
       <div
         style={slider_area__slider__container}
-        className={`${styles["slider_area__slider"]}`}
+        className={`${styles["slider-container"]}`}
       >
         {photos.map((photo, id) => (
-          <div
-            key={id}
-            id="image_carousel"
-            style={getImageBackground(id)}
-            className={`${styles["single_slider"]} d-flex align-items-center justify-content-center`}
-          >
+          <div key={id} className="h-100 w-100 position-relative">
+            <Image
+              id="image_carousel"
+              src={photo.url}
+              alt="Photo"
+              className={`${styles["image-container"]}`}
+              style={setObjectFit}
+              fill
+            />
             {photos[currentIndex].name ? (
-              <div className="container ">
-                <div className="row">
-                  <div className="col-xl-12">
-                    <div
-                      className={`${styles["slider_text"]} ${raleway.className} text-center`}
-                    >
+              <div className="row h-100 ">
+                <div className="col-xl-12">
+                  <div
+                    className={`${styles["text-container__text"]} ${raleway.className} text-center`}
+                  >
+                    <div>
                       <h3>{photos[currentIndex].name}</h3>
+                    </div>
+                    <div>
                       <p>{photos[currentIndex].phrase}</p>
                     </div>
                   </div>

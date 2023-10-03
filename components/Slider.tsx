@@ -3,17 +3,17 @@ import Carousel from "./Carousel";
 
 const photos = [
   {
-    url: "./images/slider/slider_1.jpg",
+    url: "/images/slider/slider_1.jpg",
     name: "Hotel La Finca",
     phrase: "Una entrada a la Naturaleza",
   },
   {
-    url: "./images/slider/slider_2.jpg",
+    url: "/images/slider/slider_2.jpg",
     name: "La Vida es Bella",
     phrase: "Permitenos mostrarte este mundo",
   },
   {
-    url: "./images/slider/slider_3.jpg",
+    url: "/images/slider/slider_3.jpg",
     name: "La Naturaleza es Salud",
     phrase: "Disfruta, Vive, Sana",
   },

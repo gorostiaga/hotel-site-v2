@@ -1,7 +1,7 @@
 import styles from "@/styles/About.module.scss";
 import Image from "next/image";
-import about_1 from "../public/images/about/about_1.jpg";
-import about_2 from "../public/images/about/about_2.jpg";
+import about_1 from "@/public/images/about/about_1.jpg";
+import about_2 from "@/public/images/about/about_2.jpg";
 import { Raleway } from "next/font/google";
 
 const raleway = Raleway({
@@ -40,10 +40,20 @@ function About() {
           <div className="col-xl-7 col-lg-7 d-flex align-items-center">
             <div className={`${styles["about_thumb"]} d-flex `}>
               <div className={styles["img_1"]}>
-                <Image alt="about_1" src={about_1} object-fit="cover" />
+                <Image
+                  alt="about_1"
+                  src={about_1}
+                  object-fit="cover"
+                  placeholder="blur"
+                />
               </div>
               <div className={styles["img_2"]}>
-                <Image alt="about_2" src={about_2} object-fit="cover" />
+                <Image
+                  alt="about_2"
+                  src={about_2}
+                  object-fit="cover"
+                  placeholder="blur"
+                />
               </div>
             </div>
           </div>
