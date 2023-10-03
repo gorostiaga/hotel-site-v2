@@ -1,4 +1,11 @@
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import {
+  CSSProperties,
+  FC,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import styles from "@/styles/Carousel.module.scss";
 
 import { Raleway } from "next/font/google";
@@ -24,8 +31,8 @@ const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const setObjectFit = {
-    backgroundSize: contain ? "contain" : "cover",
+  const setObjectFit: CSSProperties = {
+    objectFit: contain ? "contain" : "cover",
   };
 
   const slider_area__slider__container = {
@@ -73,7 +80,7 @@ const Carousel: FC<CarouselProps> = ({ photos, autoSlide, contain }) => {
         className={`${styles["slider-container"]}`}
       >
         {photos.map((photo, id) => (
-          <div key={id} className="h-100 w-100 position-relative">
+          <div key={id} className="h-100 w-100 position-relative ">
             <Image
               id="image_carousel"
               src={photo.url}

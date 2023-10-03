@@ -4,8 +4,18 @@
   height: 100vh;
   position: relative;
 
+  background-color: rgb(26, 25, 25);
+
   @media #{$mobile_device} {
     height: 30vh;
+    margin-bottom: 2rem;
+  }
+  @media #{$tablet_device} {
+    height: 50vh;
+    margin-bottom: 2rem;
+  }
+  @media #{$mid_device} {
+    height: 75vh;
     margin-bottom: 2rem;
   }
 }
