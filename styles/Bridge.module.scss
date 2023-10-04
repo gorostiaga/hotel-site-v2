@@ -1,24 +1,9 @@
 @import "_variables.scss";
 
 .bridge-section {
-  /* background-image: url("freedom.jpg");
-    background-size: cover;
-    background-position: left 10% bottom 20%; */
-  /* background-repeat: no-repeat;
-    background-origin: border-box;
-    background-clip: border-box; */
-  /* background-image: linear-gradient(
-    180deg,
-    red 70%,
-    blue 60%,
-    rgba(0, 0, 0, 0.5)
-  ); */
-  /* background-image: radial-gradient(ellipse farthest-corner at 20% 50%, red, blue 70%, green); */
   height: 60vh;
   margin: 4rem 0;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
+
   @media #{$mobile_device} {
     height: 40vh;
     margin: 3rem 0;
@@ -33,9 +18,35 @@
   display: flex;
   align-items: center;
 
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); /* Adjust the alpha (4th value) to control darkness */
+    pointer-events: none;
+  }
+
+  .image-container {
+    object-position: center bottom;
+    object-fit: cover;
+  }
+
   .bridge_text {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     h3 {
       color: rgb(255, 255, 255);
       font-size: 100px;
@@ -70,19 +81,4 @@
       }
     }
   }
-}
-.bridge-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(
-    0,
-    0,
-    0,
-    0.3
-  ); /* Adjust the alpha (4th value) to control darkness */
-  pointer-events: none;
 }

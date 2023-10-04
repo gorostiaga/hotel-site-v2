@@ -13,13 +13,15 @@ const RoomShowCase: React.FC<RoomShowCaseProps> = (props) => {
   return (
     <div className={styles["single_rooms"]}>
       <div className={styles["room_thumb"]}>
-        <img src={props.mainImageSource} alt="" />
-        {/* <Image
+        {/* <img src={props.mainImageSource} alt="" /> */}
+        <Image
           src={props.mainImageSource}
           alt="Room Image"
           fill
+          sizes="(max-width: 767px) 100vw,
+                50vw"
           className={styles["room-main-image"]}
-        /> */}
+        />
         <div
           className={`${styles["room_heading"]} d-flex justify-content-between align-items-center`}
         >

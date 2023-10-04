@@ -1,54 +1,73 @@
 @import "_variables.scss";
 
-.container {
+.main-container {
   overflow: hidden;
   height: 100%;
   position: relative;
-  .slider_area__slider {
+  width: 100%;
+
+  .slider-container {
     display: flex;
     transition: all ease-in-out 0.3s;
     height: 100%;
-    .single_slider {
-      //background-size: contain !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
+    width: 100%;
 
-      .slider_text {
-        h3 {
-          color: rgb(255, 255, 255);
-          font-size: 100px;
-          text-transform: capitalize;
-          letter-spacing: 2px;
-          font-weight: 400;
-          margin-bottom: 4px;
-          @media #{$mobile_device} {
-            font-size: 33px;
-            letter-spacing: 3px;
-          }
-          @media #{$tablet_device} {
-            font-size: 30px;
-          }
-          @media #{$mid_device} {
-            font-size: 35px;
-            letter-spacing: 3px;
-          }
+    .image-container {
+      position: relative;
+      object-position: center;
+      width: 100%;
+
+      @media #{$mobile_device} {
+        object-fit: cover !important;
+      }
+      @media #{$tablet_device} {
+        object-fit: cover !important;
+      }
+    }
+
+    .text-container__text {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 10;
+      height: 100%;
+
+      h3 {
+        color: rgb(255, 255, 255);
+        font-size: 100px;
+        text-transform: capitalize;
+        letter-spacing: 2px;
+        font-weight: 400;
+        margin-bottom: 4px;
+        @media #{$mobile_device} {
+          font-size: 33px;
+          letter-spacing: 3px;
         }
-        p {
-          font-size: 24px;
-          font-weight: 400;
-          color: #ffffff;
-          margin-bottom: 0;
-          margin-top: 0;
-          @media #{$mid_device} {
-            font-size: 16px;
-          }
-          @media #{$mobile_device} {
-            font-size: 16px;
-          }
+        @media #{$tablet_device} {
+          font-size: 30px;
+        }
+        @media #{$mid_device} {
+          font-size: 35px;
+          letter-spacing: 3px;
+        }
+      }
+      p {
+        font-size: 24px;
+        font-weight: 400;
+        color: #ffffff;
+        margin-bottom: 0;
+        margin-top: 0;
+        @media #{$mid_device} {
+          font-size: 16px;
+        }
+        @media #{$mobile_device} {
+          font-size: 16px;
         }
       }
     }
   }
+
   .slider_arrow {
     position: absolute;
 
